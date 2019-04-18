@@ -1,19 +1,19 @@
 var PORT = process.env.PORT || 4000;
 var express = require('express');
-var socket = require('socket.io');
 
 //App setup
 var app = express();
-var server  = require('http').Server(app);
+var server  = app.listen(PORT, function(){
+  console.log("Connected to port!");
+});
 
 //Static files
 app.use(express.static('public'));
 
 //Socket setup
-var io = socket(http, {
-  'pingInterval' : 2000,
-  'pingTimeout' : 5000
-});
+var io = require('socket.io')(server);
+io.set('heartbeat timeout', 5000);
+io.set('heartbeat interval', 2000);
 
 io.on('connection', function(socket){
   console.log("Made socket connection!", socket.id);
