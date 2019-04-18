@@ -4,15 +4,16 @@ var socket = require('socket.io');
 
 //App setup
 var app = express();
-var server  = app.listen(PORT, function(){
-  console.log("Listening to request on port");
-});
+var server  = require('http').Server(app);
 
 //Static files
 app.use(express.static('public'));
 
 //Socket setup
-var io = socket(server);
+var io = socket(http, {
+  'pingInterval' : 2000,
+  'pingTimeout' : 5000
+});
 
 io.on('connection', function(socket){
   console.log("Made socket connection!", socket.id);
