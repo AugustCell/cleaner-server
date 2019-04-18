@@ -15,6 +15,7 @@ var io = require('socket.io')(server);
 io.set('heartbeat timeout', 5000);
 io.set('heartbeat interval', 2000);
 
+//Once connected. If it receives a chat value will emit a chat value
 io.on('connection', function(socket){
   console.log("Made socket connection!", socket.id);
 
