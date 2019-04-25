@@ -12,6 +12,14 @@ button.addEventListener('click', function(){
   });
 });
 
+button = document.getElementById('request');
+button.addEventListener('click', function(){
+  console.log("Request button clicked");
+  socket.emit('request', {
+    message: "Show me your directory..."
+  });
+});
+
 //Listen for events
 socket.on('chat', function(data){
   alert("You typed: " + data.message);
