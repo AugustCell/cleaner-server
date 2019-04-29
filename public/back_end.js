@@ -26,31 +26,47 @@ socket.on('chat', function(data){
   alert("You typed: " + data.message);
 });
 
+function spawnButtons(names){
+  for(var i = 0; i < names.length; i++){
+    const btn = document.createElement("BUTTON");
+    btn.innerHTML = names[i];
+    btn.name = names[i];
+    divSection.appendChild(btn);
+    btn.addEventListener('click', function(){
+      alert("This is my name " + btn.name);
+    });
+  }
+}
+
+//This function is used to get directories and
+//files returned from the python side.
 socket.on('dirReturned', function(data){
-  console.log(data.dirs);
+  divSection.innerHTML = "";
   var directories = data.dirs;
+  var files = data.files;
+  divSection.innerHTML = "Directories: " + "<br>";
+  spawnButtons(directories);
+  divSection.innerHTML = "Files: " + "<br>";
+  spawnButtons(files);
+  /*
   for(var i = 0; i < directories.length; i++){
     const btn = document.createElement("BUTTON");
-    btn.innerHTML = directories[i];
+    btn.innerHTML = "Directory: " + directories[i];
     btn.name = directories[i];
     divSection.appendChild(btn);
     btn.addEventListener('click', function(){
       alert("This is my name " + btn.name);
-    })
+    });
   }
-  //var obj = JSON.parse(data);
-  //console.log(typeof(obj));
-  //console.log(obj);
-  //for(var i = 0; i < dirList.length; i++){
-    //console.log("This is element " + i + " " + dirList[i]);
-  //}
-});
-
-/*
-socket.on('directories', function(data){
-
-  for(var i = 0; i < data.length; i++){
-
+  for(var i = 0; i < directories.length; i++){
+    const btn = document.createElement("BUTTON");
+    btn.innerHTML = "Directory: " + directories[i];
+    btn.name = directories[i];
+    divSection.appendChild(btn);
+    btn.addEventListener('click', function(){
+      alert("This is my name " + btn.name);
+    });
   }
-})
 */
+
+});
