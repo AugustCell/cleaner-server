@@ -46,7 +46,7 @@ socket.on('dirReturned', function(data){
   var files = data.files;
   divSection.innerHTML = "Directories: " + "<br>";
   spawnButtons(directories);
-  divSection.innerHTML += "Files: " + "<br>";
+  divSection.innerHTML += "<br>" + "Files: " + "<br>";
   spawnButtons(files);
   /*
   for(var i = 0; i < directories.length; i++){
