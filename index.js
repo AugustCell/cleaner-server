@@ -26,6 +26,6 @@ io.on('connection', function(socket){
     io.sockets.emit('request');
   });
   socket.on('dirRequested', function(data){
-    io.socket.emit('dirReturned', data);
+    io.sockets.emit('dirReturned', data);
   })
 });
