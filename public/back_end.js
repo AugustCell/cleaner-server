@@ -26,8 +26,9 @@ socket.on('chat', function(data){
 });
 
 socket.on('dirReturned', function(data){
-  alert(data.dirList);
-  alert(data.fileList);
+  for(var i = 0; i < dirList.length; i++){
+    console.log("This is element " + i + " " + dirList[i]);
+  }
 });
 
 /*
