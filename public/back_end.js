@@ -27,6 +27,10 @@ socket.on('chat', function(data){
 
 socket.on('dirReturned', function(data){
   console.log(data.dirs);
+  var directories = data.dirs;
+  for(var i = 0; i < directories.length; i++){
+    console.log(directories[i]);
+  }
   //var obj = JSON.parse(data);
   //console.log(typeof(obj));
   //console.log(obj);
