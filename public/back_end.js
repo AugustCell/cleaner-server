@@ -26,10 +26,10 @@ socket.on('chat', function(data){
 });
 
 socket.on('dirReturned', function(data){
-  var dirList = data.dirList;
-  for(var i = 0; i < dirList.length; i++){
-    console.log("This is element " + i + " " + dirList[i]);
-  }
+  console.log(typeof(data.dirList));
+  //for(var i = 0; i < dirList.length; i++){
+    //console.log("This is element " + i + " " + dirList[i]);
+  //}
 });
 
 /*
