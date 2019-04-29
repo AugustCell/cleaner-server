@@ -27,7 +27,7 @@ socket.on('chat', function(data){
 });
 
 document.addEventListener('click', function(e){
-  if(e.target.name != ""){
+  if(e.target.name != "" || typeof e.target.name != undefined){
     alert(e.target.name);
   }
 })
