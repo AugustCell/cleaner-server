@@ -26,6 +26,7 @@ socket.on('chat', function(data){
 });
 
 socket.on('dirReturned', function(data){
+  console.log(data.dirList);
   var obj = JSON.parse(data);
   console.log(typeof(obj));
   console.log(obj);
