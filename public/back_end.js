@@ -29,9 +29,11 @@ socket.on('dirReturned', function(data){
   alert(data.dirs);
 });
 
-//socket.on('directories', function(data){
+/*
+socket.on('directories', function(data){
 
-  //for(var i = 0; i < data.length; i++){
+  for(var i = 0; i < data.length; i++){
 
-  //}
+  }
 })
+*/
