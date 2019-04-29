@@ -26,7 +26,8 @@ socket.on('chat', function(data){
 });
 
 socket.on('dirReturned', function(data){
-  alert("Got back to website");
+  alert(data.dirList);
+  alert(data.fileList);
 });
 
 /*
