@@ -27,7 +27,7 @@ socket.on('chat', function(data){
 });
 
 document.addEventListener('click', function(e){
-  console.log(e.target.name);
+  alert(e.target.name);
 })
 
 function spawnButtons(names){
