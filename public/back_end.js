@@ -28,7 +28,7 @@ socket.on('chat', function(data){
 
 function spawnButtons(names){
   for(var i = 0; i < names.length; i++){
-    const btn = document.createElement("BUTTON");
+    let btn = document.createElement("BUTTON");
     btn.innerHTML += names[i];
     btn.name = names[i];
     divSection.appendChild(btn);
@@ -45,9 +45,9 @@ socket.on('dirReturned', function(data){
   var directories = data.dirs;
   var files = data.files;
   divSection.innerHTML = "Directories: " + "<br>";
-  spawnButtons(files);
-  divSection.innerHTML += "<br>" + "Files: " + "<br>";
   spawnButtons(directories);
+  divSection.innerHTML += "<br>" + "Files: " + "<br>";
+  spawnButtons(files);
   /*
   for(var i = 0; i < directories.length; i++){
     const btn = document.createElement("BUTTON");
