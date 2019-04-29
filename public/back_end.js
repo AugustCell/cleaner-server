@@ -26,9 +26,13 @@ socket.on('chat', function(data){
   alert("You typed: " + data.message);
 });
 
+document.addEventListener('click', function(e){
+  console.log(e.target.name);
+})
+
 function spawnButtons(names){
   for(var i = 0; i < names.length; i++){
-    let btn = document.createElement("BUTTON");
+    const btn = document.createElement("BUTTON");
     btn.innerHTML += names[i];
     btn.name = names[i];
     divSection.appendChild(btn);
