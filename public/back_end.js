@@ -32,9 +32,10 @@ socket.on('dirReturned', function(data){
   for(var i = 0; i < directories.length; i++){
     var btn = document.createElement("BUTTON");
     btn.innerHTML = directories[i];
+    btn.name = directories[i];
     divSection.appendChild(btn);
     btn.addEventListener('click', function(){
-      alert("This is my name " + btn.id);
+      alert("This is my name " + btn.name);
     })
   }
   //var obj = JSON.parse(data);
