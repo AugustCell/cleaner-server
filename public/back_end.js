@@ -4,6 +4,7 @@ var socket = io();
 var message = document.getElementById('message');
 var button = document.getElementById('submit');
 var divSection = document.getElementById('Buttons');
+var button2 = document.getElementById('request');
 
 //Emit events
 button.addEventListener('click', function(){
@@ -13,7 +14,6 @@ button.addEventListener('click', function(){
   });
 });
 
-button2 = document.getElementById('request');
 button2.addEventListener('click', function(){
   alert("Request button clicked");
   socket.emit('requestDirs', {
@@ -26,21 +26,20 @@ socket.on('chat', function(data){
   alert("You typed: " + data.message);
 });
 
+//If the buttons are clicked inside of the div, say its name.
 document.addEventListener('click', function(e){
   if(divSection.contains(e.target)){
     alert(e.target.name);
   }
 })
 
+//Make buttons appear once files adn directory are here.
 function spawnButtons(names){
   for(var i = 0; i < names.length; i++){
     const btn = document.createElement("BUTTON");
     btn.innerHTML += names[i];
     btn.name = names[i];
     divSection.appendChild(btn);
-    btn.addEventListener('click', function(){
-      alert("This is my name " + btn.name);
-    });
   }
 }
 
@@ -54,25 +53,4 @@ socket.on('dirReturned', function(data){
   spawnButtons(directories);
   divSection.innerHTML += "<br>" + "Files: " + "<br>";
   spawnButtons(files);
-  /*
-  for(var i = 0; i < directories.length; i++){
-    const btn = document.createElement("BUTTON");
-    btn.innerHTML = "Directory: " + directories[i];
-    btn.name = directories[i];
-    divSection.appendChild(btn);
-    btn.addEventListener('click', function(){
-      alert("This is my name " + btn.name);
-    });
-  }
-  for(var i = 0; i < directories.length; i++){
-    const btn = document.createElement("BUTTON");
-    btn.innerHTML = "Directory: " + directories[i];
-    btn.name = directories[i];
-    divSection.appendChild(btn);
-    btn.addEventListener('click', function(){
-      alert("This is my name " + btn.name);
-    });
-  }
-*/
-
 });
