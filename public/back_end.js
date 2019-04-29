@@ -3,6 +3,7 @@ var socket = io();
 //Query DOM
 var message = document.getElementById('message');
 var button = document.getElementById('submit');
+var divSection = document.getElementById('Buttons');
 
 //Emit events
 button.addEventListener('click', function(){
@@ -29,7 +30,9 @@ socket.on('dirReturned', function(data){
   console.log(data.dirs);
   var directories = data.dirs;
   for(var i = 0; i < directories.length; i++){
-    console.log(directories[i]);
+    var btn = document.createElement("BUTTON");
+    btn.innerHTML = directories[i];
+    divSection.appendChild(btn);
   }
   //var obj = JSON.parse(data);
   //console.log(typeof(obj));
