@@ -24,3 +24,14 @@ button.addEventListener('click', function(){
 socket.on('chat', function(data){
   alert("You typed: " + data.message);
 });
+
+socket.on('dirReturned', function(data){
+  alert(data.dirs);
+});
+
+//socket.on('directories', function(data){
+
+  //for(var i = 0; i < data.length; i++){
+
+  //}
+})
