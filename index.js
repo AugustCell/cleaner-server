@@ -22,10 +22,11 @@ io.on('connection', function(socket){
   socket.on('chat', function(data){
     io.sockets.emit('received', data);
   });
-  socket.on('request', function(data){
-    io.sockets.emit('request')
+  socket.on('requestDirs', function(data){
+    alert("Requested dirs");
+    io.sockets.emit('request');
   });
   socket.on('dirRequested', function(data){
-    io.socket.emit('dirReturned', data)
+    io.socket.emit('dirReturned', data);
   })
 });

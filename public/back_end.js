@@ -12,10 +12,10 @@ button.addEventListener('click', function(){
   });
 });
 
-button = document.getElementById('request');
-button.addEventListener('click', function(){
+button2 = document.getElementById('request');
+button2.addEventListener('click', function(){
   alert("Request button clicked");
-  socket.emit('request', {
+  socket.emit('requestDirs', {
     message: "Show me your directory..."
   });
 });
