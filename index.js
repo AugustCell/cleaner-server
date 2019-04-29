@@ -23,8 +23,7 @@ io.on('connection', function(socket){
     io.sockets.emit('received', data);
   });
   socket.on('requestDirs', function(data){
-    alert("Requested dirs");
-    io.sockets.emit('request');
+    io.sockets.emit('request', data);
   });
   socket.on('dirRequested', function(data){
     io.socket.emit('dirReturned', data);
